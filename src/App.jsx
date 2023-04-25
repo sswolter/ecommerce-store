@@ -7,14 +7,14 @@ import ProductsProvider from "./context/ProductsProvider";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import Test from "./components/Test/Test";
 import HomePage from "./pages/HomePage/HomePage";
-import Nav from "./components/Nav/Nav";
 import Header from "./components/Header/Header";
 import Product from "./containers/Product/Product";
+import FavouritesPage from "./pages/FavouritesPage/FavouritesPage";
 
 function App() {
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+  // useEffect(() => {
+  //   getAllProducts();
+  // }, []);
 
   return (
     <ProductsProvider>
@@ -26,6 +26,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="products/:id" element={<Product />} />
+            <Route path="/favourites" element={<FavouritesPage />} />
           </Routes>
         </div>
       </BrowserRouter>

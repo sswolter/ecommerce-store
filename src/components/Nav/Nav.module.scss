@@ -1,37 +1,21 @@
-// .Shop {
-//   &_Cat {
-//     display: none;
-//     position: relative;
-//     top: 100%;
-//     left: 0;
-//     padding: 0;
-//     margin: 0;
-//     background-color: #fff;
-//     border: 1px solid #ccc;
-//   }
-// }
-
-// .Shop:hover .Shop_Cat {
-//   display: block;
-// }
-
-nav {
+.Nav {
   display: flex;
   justify-content: space-around;
+  width: 400px;
+
+  &_Cat {
+    display: none;
+    position: absolute;
+    top: 11;
+    left: 50;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
 }
 
-.nav__categories {
-  display: none;
-  position: relative;
-  top: 0;
-  left: 0;
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-  border: 1px solid #ccc;
-}
-
-.nav__shop:hover .nav__categories {
+.Nav_Products:hover .Nav_Cat {
   display: block;
-  border: 1px solid black;
+  // border: 1px solid black;
 }

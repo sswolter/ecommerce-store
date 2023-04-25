@@ -1,10 +1,27 @@
+@use "../../theme.scss" as *;
+
 .Card {
-  border: 1px solid;
+  margin: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: start;
-  width: 250px;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: -2px 14px 19px -4px rgba(207, 206, 191, 0.75);
+  padding-bottom: 40px;
   &_Details {
-    padding-left: 2px;
+    padding: 10px;
   }
+}
+
+.Img {
+  height: 300px;
+  padding: 5px;
+}
+
+.Brand {
+  text-transform: uppercase;
+  color: $label;
 }

@@ -5,11 +5,11 @@ import styles from "./FeaturedProducts.module.scss";
 
 const FeaturedProducts = () => {
   const { featuredProducts } = useContext(ProductsContext);
-  console.log(featuredProducts, "this is featured products");
+  // console.log(featuredProducts, "this is featured products");
 
   return (
-    <>
-      <h1>featured</h1>
+    <div className={styles.Section}>
+      <h1>Featured Products</h1>
       <div className={styles.Cards}>
         {featuredProducts &&
           featuredProducts.map((product) => {
@@ -20,11 +20,13 @@ const FeaturedProducts = () => {
                 name={product.name}
                 price={product.price}
                 id={product.id}
+                fav={product.fav}
+                image={product.image}
               />
             );
           })}
       </div>
-    </>
+    </div>
   );
 };
 

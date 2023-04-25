@@ -1,3 +1,16 @@
+@use "../../theme.scss" as *;
+
 .Cards {
   display: flex;
+  justify-content: center;
+  background-color: $grey;
+  padding: 70px;
+}
+
+.Section {
+  text-align: center;
+
+  > h1 {
+    padding: 50px;
+  }
 }

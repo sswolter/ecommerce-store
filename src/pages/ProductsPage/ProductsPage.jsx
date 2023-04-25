@@ -6,21 +6,26 @@ import styles from "./ProductsPage.module.scss";
 
 const ProductsPage = () => {
   const { products } = useContext(ProductsContext);
-  console.log(products);
+
   return (
-    <div className={styles.Cards}>
-      {products &&
-        products.map((product) => {
-          return (
-            <ProductCard
-              key={product.id}
-              brand={product.brand}
-              name={product.name}
-              price={product.price}
-              id={product.id}
-            />
-          );
-        })}
+    <div className={styles.Page}>
+      <h1>All Products</h1>
+      <div className={styles.Cards}>
+        {products &&
+          products.map((product) => {
+            return (
+              <ProductCard
+                key={product.id}
+                brand={product.brand}
+                name={product.name}
+                price={product.price}
+                id={product.id}
+                image={product.image}
+                fav={product.fav}
+              />
+            );
+          })}
+      </div>
     </div>
   );
 };

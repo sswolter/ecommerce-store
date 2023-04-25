@@ -7,10 +7,8 @@ const Nav = () => {
     <nav className={styles.Nav}>
       <NavLink to="/">Home</NavLink>
       <div className={styles.Nav_Products}>
-        <NavLink to="/products" className={styles.nav__shop_link}>
-          Products
-        </NavLink>
-        <ul className={styles.Nav_Cat}>
+        <NavLink to="/products">Products</NavLink>
+        {/* <ul className={styles.Nav_Cat}>
           <li>
             <NavLink to="/products/category/food">Food</NavLink>
           </li>
@@ -20,9 +18,10 @@ const Nav = () => {
           <li>
             <NavLink to="/products/category/enrichment">Enrichment</NavLink>
           </li>
-        </ul>
+        </ul> */}
       </div>
       <NavLink to="/favourites">Favourites</NavLink>
+      <NavLink to="/cart">Cart</NavLink>
     </nav>
   );
 };

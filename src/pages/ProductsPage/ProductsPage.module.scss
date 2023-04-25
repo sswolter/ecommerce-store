@@ -1,6 +1,10 @@
+@use "../../theme.scss" as *;
+
 .Cards {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  padding: 70px 0;
 }
 
 .Page {

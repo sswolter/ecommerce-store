@@ -8,6 +8,7 @@ const ProductsProvider = ({ children }) => {
   const [featuredProducts, setFeaturedProducts] = useState(null);
   const [favProducts, setFaveProducts] = useState(null);
   const [favoritesUpdated, setFavoritesUpdated] = useState(false);
+  const [updates, setUpdates] = useState(0);
 
   // all products
   const productsAsync = async () => {
@@ -27,15 +28,6 @@ const ProductsProvider = ({ children }) => {
     }
   }, [products]);
 
-  // favourited products
-  // useEffect(() => {
-  //   if (products) {
-  //     const favPro = products.filter((product) => product.fav);
-  //     setFaveProducts(favPro);
-  //     // setUpdated(updated + 1);
-  //   }
-  // }, [products]);
-
   return (
     <ProductsContext.Provider
       value={{
@@ -45,6 +37,8 @@ const ProductsProvider = ({ children }) => {
         setFaveProducts,
         favoritesUpdated,
         setFavoritesUpdated,
+        updates,
+        setUpdates,
       }}
     >
       {children}

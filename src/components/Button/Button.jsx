@@ -12,7 +12,6 @@ const Button = ({ id, fav }) => {
   const getProduct = async () => {
     const data = await getProductById(id);
     setFoundProduct(data);
-    // console.log(data, "THIS IS DATA");
   };
 
   useEffect(() => {

@@ -5,7 +5,8 @@ import { getAllProducts, getFavProducts } from "../../services/products";
 import styles from "./FavouritesPage.module.scss";
 
 const FavouritesPage = () => {
-  const { favProducts, setFaveProducts } = useContext(ProductsContext);
+  const { favProducts, setFaveProducts, updates, setUpdates } =
+    useContext(ProductsContext);
 
   const getFavProducts = async () => {
     const products = await getAllProducts();

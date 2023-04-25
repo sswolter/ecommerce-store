@@ -10,6 +10,8 @@ import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import Product from "./containers/Product/Product";
 import FavouritesPage from "./pages/FavouritesPage/FavouritesPage";
+import CartProvider from "./context/CartProvider";
+import CartPage from "./pages/CartPage/CartPage";
 
 function App() {
   // useEffect(() => {
@@ -18,18 +20,21 @@ function App() {
 
   return (
     <ProductsProvider>
-      <BrowserRouter>
-        <div className="App">
-          <Header />
+      <CartProvider>
+        <BrowserRouter>
+          <div className="App">
+            <Header />
 
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="products/:id" element={<Product />} />
-            <Route path="/favourites" element={<FavouritesPage />} />
-          </Routes>
-        </div>
-      </BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="products/:id" element={<Product />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </CartProvider>
     </ProductsProvider>
   );
 }

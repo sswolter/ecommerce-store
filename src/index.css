@@ -1,6 +1,6 @@
 :root {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  font-family: "Poppins", sans-serif;
+  font-family: Helvetica, sans-serif, Arial;
   /* line-height: 1.5;
   font-weight: 400; */
 
@@ -72,3 +72,19 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+button {
+  background-color: #e1dfe9;
+  border: none;
+  color: #565360;
+  width: 100px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 12px;
+}
+
+button:hover {
+  outline: auto;
+}

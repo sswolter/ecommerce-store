@@ -5,12 +5,13 @@ import { ProductsContext } from "../../context/ProductsProvider";
 import { getProductByID, updateFavValue } from "../../services/products";
 import { CartContext } from "../../context/CartProvider";
 import { addItem } from "../../services/cart";
+import styles from "./Product.module.scss";
 
 const Product = () => {
   const { id } = useParams();
   const { updated, setUpdated } = useContext(UpdateContext);
   const { product, setProduct } = useContext(ProductsContext);
-  const { quantity, setQuantity, cartVar, setCartVar, btnAdded, setBtnAdded } =
+  const { quantity, setQuantity, cartVar, setCartVar } =
     useContext(CartContext);
 
   useEffect(() => {
@@ -65,36 +66,36 @@ const Product = () => {
     }
 
     addItem(newCartItem);
-    setBtnAdded(!btnAdded);
+    setQuantity(1);
     setUpdated(updated + 1);
   };
 
   return (
-    <div>
-      <img src={product?.image} alt="" />
-      <h1>{product?.name}</h1>
-      <p>{product?.brand}</p>
-      <p>${product?.price}</p>
-      {product?.variants &&
-        product?.variants.map((v) => {
-          return (
-            <button key={v} onClick={handleVariant} value={v}>
-              {v}
-            </button>
-          );
-        })}
-      <button onClick={handleDec}>-</button>
-      <p>{quantity}</p>
-      <button onClick={handleInc}>+</button>
-      {btnAdded ? (
-        <button disabled>Added to cart</button>
-      ) : (
+    <div className={styles.Page}>
+      <img src={product?.image} alt="" height="500px" />
+      <article>
+        <h1>{product?.name}</h1>
+        <p>{product?.brand}</p>
+        <p className={styles.Desc}>{product.description}</p>
+        <p>${product?.price}</p>
+        {product?.variants &&
+          product?.variants.map((v) => {
+            return (
+              <button key={v} onClick={handleVariant} value={v}>
+                {v}
+              </button>
+            );
+          })}
+        <div className={styles.Quantity}>
+          <button onClick={handleDec}>-</button>
+          <p>{quantity}</p>
+          <button onClick={handleInc}>+</button>
+        </div>
         <button onClick={handleAdd}>Add to cart</button>
-      )}
-
-      <button onClick={handleClick}>
-        {product?.fav === true ? "Remove from favorites" : "Add to favorites"}
-      </button>
+        <button onClick={handleClick}>
+          {product?.fav === true ? "Remove from favorites" : "Add to favorites"}
+        </button>
+      </article>
     </div>
   );
 };

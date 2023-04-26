@@ -35,7 +35,6 @@ export const updateProduct = async (id, dataObject) => {
   const docRef = doc(db, "products", id);
   await updateDoc(docRef, dataObject);
 };
-// add error handling
 
 export const updateFavValue = async (id, currvalue) => {
   const docRef = doc(db, "products", id);

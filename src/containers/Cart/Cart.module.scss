@@ -1,0 +1,26 @@
+@use "../../theme.scss" as *;
+
+h1 {
+  font-size: $size2;
+}
+.Cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Item {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  width: 500px;
+
+  &_Info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+  }
+}

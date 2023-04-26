@@ -1,30 +1,34 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { getAllProducts } from "../services/products";
+import { UpdateContext } from "./UpdateProvider";
 
 export const ProductsContext = createContext();
 
 const ProductsProvider = ({ children }) => {
+  const { updated } = useContext(UpdateContext);
   const [products, setProducts] = useState(null);
-  const [featuredProducts, setFeaturedProducts] = useState(null);
-  const [favProducts, setFaveProducts] = useState(null);
-  const [favoritesUpdated, setFavoritesUpdated] = useState(false);
-  const [updates, setUpdates] = useState(0);
-
-  // all products
-  const productsAsync = async () => {
-    const allProducts = await getAllProducts();
-    setProducts(allProducts);
-  };
+  const [fav, setFav] = useState(null);
+  const [featured, setFeatured] = useState(null);
 
   useEffect(() => {
-    productsAsync();
-  }, []);
+    const wrapper = async () => {
+      const allProducts = await getAllProducts();
+      setProducts(allProducts);
+    };
+    wrapper();
+  }, [updated]);
 
-  // featured products
+  useEffect(() => {
+    if (products) {
+      const faveProducts = products.filter((p) => p.fav);
+      setFav(faveProducts);
+    }
+  }, [products, updated]);
+
   useEffect(() => {
     if (products) {
       const featPro = products.filter((product) => product.featured);
-      setFeaturedProducts(featPro);
+      setFeatured(featPro);
     }
   }, [products]);
 
@@ -32,13 +36,10 @@ const ProductsProvider = ({ children }) => {
     <ProductsContext.Provider
       value={{
         products,
-        featuredProducts,
-        favProducts,
-        setFaveProducts,
-        favoritesUpdated,
-        setFavoritesUpdated,
-        updates,
-        setUpdates,
+        setProducts,
+        fav,
+        setFav,
+        featured,
       }}
     >
       {children}

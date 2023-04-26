@@ -1,10 +1,12 @@
 import {
+  addDoc,
   collection,
   getDocs,
-  getDoc,
+  deleteDoc,
   doc,
+  getDoc,
   updateDoc,
-  addDoc,
+  increment,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -18,30 +20,28 @@ export const getAllProducts = async () => {
   return data;
 };
 
-export const getProductById = async (id) => {
+//add products only needed for cart
+// export const addMovie = async (someObj) => {
+//   const docRef = await addDoc(collection(db, "cart"), someObj);
+// };
+
+// export const deleteMovie = async (id) => {
+//   await deleteDoc(doc(db, "products", id));
+// };
+
+export const getProductByID = async (id) => {
   const docRef = doc(db, "products", id);
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
     return { id: docSnap.id, ...docSnap.data() };
   } else {
-    throw new Error("Doc not found");
+    throw new Error("Doc not found.");
   }
 };
 
-export const updateProduct = async (id, dataObj) => {
+export const updateProduct = async (id, dataObject) => {
   const docRef = doc(db, "products", id);
-  await updateDoc(docRef, dataObj);
+  await updateDoc(docRef, dataObject);
 };
-
-export const getFavProducts = async () => {
-  const products = await getAllProducts();
-  if (products) {
-    const favPro = products.filter((product) => product.fav);
-    return favPro;
-  }
-};
-
-export const addItem = async (someObj) => {
-  const docRef = await addDoc(collection(db, "cart"), someObj);
-};
+// add error handling

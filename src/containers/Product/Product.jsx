@@ -26,7 +26,7 @@ const Product = () => {
       //     console.log(e);
       //     setError(true);
       //   }
-      console.log(product);
+      //   console.log(product);
     };
     wrapper();
   }, [id, updated]);
@@ -39,7 +39,7 @@ const Product = () => {
   const handleVariant = (e) => {
     const variantVal = e.target.value;
     setCartVar(variantVal);
-    console.log(variantVal);
+    // console.log(variantVal);
   };
 
   const handleInc = () => {
@@ -76,7 +76,7 @@ const Product = () => {
       <article>
         <h1>{product?.name}</h1>
         <p>{product?.brand}</p>
-        <p className={styles.Desc}>{product.description}</p>
+        <p className={styles.Desc}>{product?.description}</p>
         <p>${product?.price}</p>
         {product?.variants &&
           product?.variants.map((v) => {

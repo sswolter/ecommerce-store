@@ -5,7 +5,7 @@ import styles from "./Favourites.module.scss";
 
 const Favourites = () => {
   const { fav } = useContext(ProductsContext);
-  console.log(fav);
+  // console.log(fav);
 
   return (
     <>

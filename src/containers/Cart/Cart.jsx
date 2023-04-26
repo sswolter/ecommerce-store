@@ -14,7 +14,7 @@ const Cart = () => {
   useEffect(() => {
     const wrapper = async () => {
       const allItems = await getCart();
-      console.log(allItems);
+      // console.log(allItems);
       setNewCart(allItems);
     };
     wrapper();

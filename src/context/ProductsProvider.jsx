@@ -9,6 +9,7 @@ const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState(null);
   const [fav, setFav] = useState(null);
   const [featured, setFeatured] = useState(null);
+  const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const wrapper = async () => {
@@ -40,6 +41,8 @@ const ProductsProvider = ({ children }) => {
         fav,
         setFav,
         featured,
+        product,
+        setProduct,
       }}
     >
       {children}

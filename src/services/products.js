@@ -20,15 +20,6 @@ export const getAllProducts = async () => {
   return data;
 };
 
-//add products only needed for cart
-// export const addMovie = async (someObj) => {
-//   const docRef = await addDoc(collection(db, "cart"), someObj);
-// };
-
-// export const deleteMovie = async (id) => {
-//   await deleteDoc(doc(db, "products", id));
-// };
-
 export const getProductByID = async (id) => {
   const docRef = doc(db, "products", id);
   const docSnap = await getDoc(docRef);
@@ -45,3 +36,10 @@ export const updateProduct = async (id, dataObject) => {
   await updateDoc(docRef, dataObject);
 };
 // add error handling
+
+export const updateFavValue = async (id, currvalue) => {
+  const docRef = doc(db, "products", id);
+  await updateDoc(docRef, {
+    fav: !currvalue,
+  });
+};

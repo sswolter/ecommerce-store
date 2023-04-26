@@ -24,3 +24,11 @@ export const getCart = async () => {
 export const removeItem = async (id) => {
   await deleteDoc(doc(db, "cart", id));
 };
+
+export const addItem = async (object) => {
+  const docRef = await addDoc(collection(db, "cart"), object);
+};
+
+export const deleteMovie = async (id) => {
+  await deleteDoc(doc(db, "cart", id));
+};

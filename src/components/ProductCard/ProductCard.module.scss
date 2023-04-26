@@ -1,0 +1,16 @@
+@use "../../theme.scss" as *;
+
+.Card {
+  border: 1px solid $grey;
+  border-radius: 15px;
+  width: 250px;
+  margin: 30px;
+  padding: 15px;
+  height: 375px;
+}
+
+.Brand {
+  color: $label;
+  text-transform: uppercase;
+  font-size: 12px;
+}

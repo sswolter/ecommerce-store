@@ -1,0 +1,15 @@
+$text: #404040;
+$label: #908e9b;
+$disabled: #e1dfe9;
+
+$primary: #ffffac;
+$grey: #f2f5f5;
+
+$size1: 15px;
+$size2: 26px;
+$weight: 700px;
+
+@mixin cards {
+  display: flex;
+  flex-wrap: wrap;
+}

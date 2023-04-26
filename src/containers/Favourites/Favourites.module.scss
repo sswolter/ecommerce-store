@@ -1,0 +1,10 @@
+@use "../../theme.scss" as *;
+
+h1 {
+  font-size: $size2;
+}
+.Cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

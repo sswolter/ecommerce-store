@@ -76,7 +76,7 @@ const Product = () => {
       <article>
         <h1>{product?.name}</h1>
         <p>{product?.brand}</p>
-        <p className={styles.Desc}>{product.description}</p>
+        <p className={styles.Desc}>{product?.description}</p>
         <p>${product?.price}</p>
         {product?.variants &&
           product?.variants.map((v) => {

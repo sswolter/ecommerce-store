@@ -38,19 +38,32 @@ This project was my first experience working with React on a larger scale, and i
 
 ### Features
 
-Home Page
+##### Home Page
 
 - Grid of products
-- - Carousel
-    Product Page
+- Carousel
+
+##### Product Page
+
 - Select product variants
 - Add to cart functionality
-  Favourites Page
+
+##### Favourites Page
+
 - View favourited items
-  Shopping cart System
+
+##### Cart System
+
 - Cart page with a list of products in the cart
 - Ability to remove items from the cart
-  Firestore Integration
+
+##### Firestore Integration
+
+- Fetching product data from Firestore
+- Storing and retrieving cart data
+
+Firestore Integration
+
 - Fetching product data from Firestore
 - Storing and retrieving cart data
 

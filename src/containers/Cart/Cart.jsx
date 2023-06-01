@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useState } from "react";
 import { CartContext } from "../../context/CartProvider";
 import { UpdateContext } from "../../context/UpdateProvider";
 import { getCart } from "../../services/cart";
-import ProductCard from "../../components/ProductCard/ProductCard";
 import { removeItem } from "../../services/cart";
 import styles from "./Cart.module.scss";
 

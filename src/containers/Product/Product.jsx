@@ -16,17 +16,8 @@ const Product = () => {
 
   useEffect(() => {
     const wrapper = async () => {
-      //   try {
-      //     if (error) {
-      //       setError(false);
-      //     }
       const data = await getProductByID(id);
       setProduct(data);
-      //   } catch (e) {
-      //     console.log(e);
-      //     setError(true);
-      //   }
-      console.log(product);
     };
     wrapper();
   }, [id, updated]);

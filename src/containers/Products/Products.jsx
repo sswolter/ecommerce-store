@@ -6,7 +6,6 @@ import styles from "./Products.module.scss";
 
 const Products = () => {
   const { products } = useContext(ProductsContext);
-  //   console.log(products);
 
   return (
     <div>

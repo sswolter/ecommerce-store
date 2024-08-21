@@ -6,6 +6,20 @@ h1 {
 .Page {
   display: flex;
   align-items: center;
+  justify-content: center;
+  max-width: 1080px;
+  margin: auto;
+  padding: 50px 0 0 50px;
+  gap: 40px;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .Item {
@@ -27,16 +41,26 @@ h1 {
 .Quantity {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  > button {
-    border-radius: 100%;
-    padding: 0px 19px;
-    margin: 0 30px;
-  }
-}
 
-button {
-  margin: 10px;
+  > input {
+    border: 1px soild grey;
+    width: 80px;
+    text-align: center;
+    box-shadow: none;
+
+    &:hover {
+      border-color: 1px solid pink;
+      box-shadow: none;
+      transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+
+    &:focus {
+      border-color: pink;
+      outline: none;
+      box-shadow: none;
+      transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+    }
+  }
 }
 
 article {
@@ -45,4 +69,22 @@ article {
 
 .Desc {
   text-align: justify;
+}
+
+.Button {
+  margin: 2px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  > img {
+    width: 20px;
+    padding: 5px;
+    filter: invert(97%) sepia(0%) saturate(7478%) hue-rotate(131deg)
+      brightness(105%) contrast(95%);
+  }
 }

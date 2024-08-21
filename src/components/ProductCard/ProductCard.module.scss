@@ -1,8 +1,8 @@
 @use "../../theme.scss" as *;
 
 .Card {
-  border: 1px solid $grey;
-  border-radius: 15px;
+  // border: 1px solid $grey;
+  // border-radius: 15px;
   width: 250px;
   margin: 30px;
   padding: 15px;
@@ -13,4 +13,25 @@
   color: $label;
   text-transform: uppercase;
   font-size: 12px;
+}
+
+.Button {
+  margin: 2px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  > img {
+    width: 20px;
+    padding: 5px;
+    filter: invert(97%) sepia(0%) saturate(7478%) hue-rotate(131deg)
+      brightness(105%) contrast(95%);
+  }
+}
+
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
 }

@@ -9,6 +9,8 @@ import Products from "./containers/Products/Products";
 import Product from "./containers/Product/Product";
 import Favourites from "./containers/Favourites/Favourites";
 import Cart from "./containers/Cart/Cart";
+import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <BrowserRouter>
             <div className="App">
               <Nav />
+              <Breadcrumb />
 
               <Routes>
                 <Route path="/" element={<Home />} />
@@ -26,6 +29,7 @@ function App() {
                 <Route path="/favourites" element={<Favourites />} />
                 <Route path="/cart" element={<Cart />} />
               </Routes>
+              <Footer />
             </div>
           </BrowserRouter>
         </CartProvider>

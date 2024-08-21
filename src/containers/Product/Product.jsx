@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import { UpdateContext } from "../../context/UpdateProvider";
 import { ProductsContext } from "../../context/ProductsProvider";
@@ -6,6 +6,7 @@ import { getProductByID, updateFavValue } from "../../services/products";
 import { CartContext } from "../../context/CartProvider";
 import { addItem } from "../../services/cart";
 import styles from "./Product.module.scss";
+import cart from "/cart.svg";
 
 const Product = () => {
   const { id } = useParams();
@@ -13,6 +14,7 @@ const Product = () => {
   const { product, setProduct } = useContext(ProductsContext);
   const { quantity, setQuantity, cartVar, setCartVar } =
     useContext(CartContext);
+  const [selectedVariant, setSelectedVariant] = useState("");
 
   useEffect(() => {
     const wrapper = async () => {
@@ -29,7 +31,7 @@ const Product = () => {
       //   console.log(product);
     };
     wrapper();
-  }, [id, updated]);
+  }, [id, updated, selectedVariant]);
 
   const handleClick = async () => {
     await updateFavValue(id, product.fav);
@@ -39,16 +41,12 @@ const Product = () => {
   const handleVariant = (e) => {
     const variantVal = e.target.value;
     setCartVar(variantVal);
-    // console.log(variantVal);
+    setSelectedVariant(variantVal);
   };
 
-  const handleInc = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleDec = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const handleClear = () => {
+    setSelectedVariant("");
+    document.getElementById("variant").value = "none";
   };
 
   const handleAdd = async () => {
@@ -71,31 +69,53 @@ const Product = () => {
   };
 
   return (
-    <div className={styles.Page}>
-      <img src={product?.image} alt="" height="500px" />
-      <article>
-        <h1>{product?.name}</h1>
-        <p>{product?.brand}</p>
-        <p className={styles.Desc}>{product?.description}</p>
-        <p>${product?.price}</p>
-        {product?.variants &&
-          product?.variants.map((v) => {
-            return (
-              <button key={v} onClick={handleVariant} value={v}>
-                {v}
-              </button>
-            );
-          })}
-        <div className={styles.Quantity}>
-          <button onClick={handleDec}>-</button>
-          <p>{quantity}</p>
-          <button onClick={handleInc}>+</button>
-        </div>
-        <button onClick={handleAdd}>Add to cart</button>
-        <button onClick={handleClick}>
-          {product?.fav === true ? "Remove from favorites" : "Add to favorites"}
-        </button>
-      </article>
+    <div>
+      <div className={styles.Page}>
+        <img src={product?.image} alt="" height="500px" />
+        <article className={styles.Info}>
+          <h1>{product?.name}</h1>
+          <p>{product?.brand}</p>
+
+          <p>${product?.price}</p>
+
+          <p className={styles.Desc}>{product?.description}</p>
+          <div>
+            {product?.variants && (
+              <select
+                name="variant"
+                id="variant"
+                value={selectedVariant}
+                onChange={handleVariant}
+              >
+                <option value="none">Please select</option>
+                {product.variants.map((v) => (
+                  <option key={v} value={v}>
+                    {v}
+                  </option>
+                ))}
+              </select>
+            )}
+            <button onClick={handleClear}>Clear</button>
+          </div>
+          <div className={styles.Quantity}>
+            <input
+              type="number"
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+            />
+            <button onClick={handleAdd} className={styles.Button}>
+              Add to cart <img src={cart} alt="" />
+            </button>
+          </div>
+
+          <button onClick={handleClick}>
+            {product?.fav === true
+              ? "Remove from favorites"
+              : "Add to favorites"}
+          </button>
+        </article>
+      </div>
     </div>
   );
 };

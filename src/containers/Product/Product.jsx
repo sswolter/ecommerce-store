@@ -45,8 +45,7 @@ const Product = () => {
   };
 
   const handleClear = () => {
-    setSelectedVariant("");
-    document.getElementById("variant").value = "none";
+    setSelectedVariant("none");
   };
 
   const handleAdd = async () => {
@@ -79,7 +78,7 @@ const Product = () => {
           <p>${product?.price}</p>
 
           <p className={styles.Desc}>{product?.description}</p>
-          <div>
+          <div className={styles.Type}>
             {product?.variants && (
               <select
                 name="variant"
@@ -95,8 +94,14 @@ const Product = () => {
                 ))}
               </select>
             )}
-            <button onClick={handleClear}>Clear</button>
+
+            {selectedVariant != "none" && (
+              <button onClick={handleClear} className={styles.Clear}>
+                Clear
+              </button>
+            )}
           </div>
+
           <div className={styles.Quantity}>
             <input
               type="number"

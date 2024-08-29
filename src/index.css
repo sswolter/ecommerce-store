@@ -3,3 +3,7 @@ body {
   padding: 0;
   font-family: "Moderustic", sans-serif;
 }
+
+p {
+  font-size: 14px;
+}

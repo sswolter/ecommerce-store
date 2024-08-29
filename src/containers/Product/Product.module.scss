@@ -41,22 +41,25 @@ h1 {
 .Quantity {
   display: flex;
   justify-content: center;
+  align-items: center;
 
   > input {
     border: 1px soild grey;
     width: 80px;
     text-align: center;
     box-shadow: none;
+    font-size: 18px;
+    height: 48px;
 
     &:hover {
-      border-color: 1px solid pink;
+      border-color: 1px solid #ffb3e4;
       box-shadow: none;
       transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
     }
 
     &:focus {
-      border-color: pink;
-      outline: none;
+      border-color: #ffb3e4;
+      outline: 0;
       box-shadow: none;
       transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
     }
@@ -73,13 +76,14 @@ article {
 
 .Button {
   margin: 2px;
-  background-color: pink;
+  background-color: #ffb3e4;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   color: white;
   padding: 10px;
+  height: 54px;
   cursor: pointer;
   > img {
     width: 20px;
@@ -87,4 +91,48 @@ article {
     filter: invert(97%) sepia(0%) saturate(7478%) hue-rotate(131deg)
       brightness(105%) contrast(95%);
   }
+}
+
+select {
+  border: 1px soild grey;
+  width: 200px;
+  text-align: center;
+  box-shadow: none;
+  font-size: 18px;
+  height: 54px;
+
+  &:hover {
+    border-color: 1px solid #ffb3e4;
+    box-shadow: none;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+
+  &:focus {
+    border-color: #ffb3e4;
+    outline: 0;
+    box-shadow: none;
+    transition: border-color 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+}
+
+.Type {
+  display: flex;
+  flex-direction: column;
+
+  align-items: end;
+  height: 130px;
+}
+
+.Clear {
+  margin: 2px;
+  background-color: #ffb3e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
 }

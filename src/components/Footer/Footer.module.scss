@@ -1,12 +1,14 @@
 .Footer {
-  height: 100px;
-  background-color: #ffb3e4;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 12px;
+  padding-top: 150px;
+  > div {
+    height: 100px;
+    background-color: #ffb3e4;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
 }

@@ -23,6 +23,7 @@ const Products = () => {
                   price={p.price}
                   id={p.id}
                   image={p.image}
+                  variants={p.variants}
                 />
               );
             })}
